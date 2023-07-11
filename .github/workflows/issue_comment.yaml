@@ -13,6 +13,8 @@ jobs:
         shell: bash
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
+        env: 
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -37,3 +39,4 @@ jobs:
           ORGANIZATION: ${{ github.event.organisation.login }}
           RESPOSITORY: ${{ github.event.respository.name }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
