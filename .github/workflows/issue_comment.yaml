@@ -30,7 +30,7 @@ jobs:
       - name: Comment with api
         run: |
           gh api -X POST \
-            ${COMMENT} \
+            https://api.github.com/${ \
             -H "Authorization: Bearer $PAT_TOKEN" \
             -f body='
             Comment but from the api call not action
