@@ -30,13 +30,11 @@ jobs:
       - name: Comment with api
         run: |
           gh api -X POST \
-            https://api.github.com/repo/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+            ${COMMENT} \
             -f body='
             Comment but from the api call not action
             '
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           ORGANIZATION: ${{ github.event.organisation.login }}
-          RESPOSITORY: ${{ github.respository.name }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          COMMENT: ${{ github.issue.comments_url }}
           PAT_TOKEN: ${{ secrets.PAT_TOKEN_1 }}
