@@ -31,6 +31,7 @@ jobs:
         run: |
           gh api -X POST \
             ${COMMENT} \
+            -H "Authorization: Bearer $PAT_TOKEN" \
             -f body='
             Comment but from the api call not action
             '
